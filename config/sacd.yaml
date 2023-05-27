@@ -1,0 +1,35 @@
+# 最大的迭代次数
+max_episodes: 50
+# 此参数代码也被注释改掉
+num_steps: 100000
+# 同时训练多少个训练数据
+batch_size: 1
+# adam优化器的设置
+lr: 0.0003
+# memory区域的大小
+memory_size: 512
+gamma: 0.99
+# 经验回放缓冲区中存储多个连续时间步的步数
+multi_step: 256
+target_entropy_ratio: 0.98
+# 随机走多少步后开始模型训练
+start_steps: 256
+# 走多少步更新一次
+update_interval: 64
+# 训练多少轮之后重新加载目标模型的权重参数
+target_update_interval: 2
+# 当设置了use_per的时候需要使用num_steps来计算beta_steps
+# 计算公式为   beta_steps = (num_steps - start_steps) / update_interval
+# 是否使用优先级经验回放
+use_per: False
+# 是否使用 Dueling Network 架构。Dueling Network 是一种网络架构，
+# 用于将值函数的估计分解为状态值函数和优势函数，从而提高值函数估计的准确性和学习效率。
+dueling_net: False
+# 验证模型时，验证的轮数
+num_eval_steps: 5
+# 一轮游戏中可以走的最多的步数
+max_episode_steps: 1024
+# 用于绘制图像，用到此参数的代码已经被注释掉了
+log_interval: 10
+# 当训练多少轮后开始验证模式来查看模式训练效果
+eval_interval: 5
