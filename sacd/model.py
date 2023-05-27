@@ -13,7 +13,7 @@ def initialize_weights_he(m):
 
 class Flatten(nn.Module):
     def forward(self, x):
-        return x.view(x.size(0), -1)
+        return x.reshape(x.size(0), -1)
 
 
 class BaseNetwork(nn.Module):
