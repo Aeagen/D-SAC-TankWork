@@ -123,7 +123,7 @@ class BaseAgent(ABC):
         episode_steps = 0
 
         done = False
-        state = self.env.reset()
+        state = self.env.reset(1)
 
         while (not done) and episode_steps <= self.max_episode_steps:
 
@@ -224,7 +224,7 @@ class BaseAgent(ABC):
         total_return = 0.0
 
         while True:
-            state = self.test_env.reset()
+            state = self.test_env.reset(1)
             episode_steps = 0
             episode_return = 0.0
             done = False
