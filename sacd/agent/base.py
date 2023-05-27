@@ -242,7 +242,7 @@ class BaseAgent(ABC):
             if num_episodes > self.num_eval_steps:
                 break
 
-        mean_return = total_return / num_episodes
+        mean_return = total_return / (num_episodes -1)
 
         if mean_return > self.best_eval_score:
             self.best_eval_score = mean_return
