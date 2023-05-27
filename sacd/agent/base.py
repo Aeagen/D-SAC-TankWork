@@ -219,7 +219,7 @@ class BaseAgent(ABC):
         #         self.learning_steps)
 
     def evaluate(self):
-        num_episodes = 0
+        num_episodes = 1
         num_steps = 0
         total_return = 0.0
 
