@@ -251,7 +251,7 @@ class BaseAgent(ABC):
         # self.writer.add_scalar(
         #     'reward/test', mean_return, self.steps)
         print('-' * 60)
-        print(f'Num steps: {self.steps:<5}  '
+        print(f'Num steps: {episode_steps:<5}  '
               f'return: {mean_return:<5.1f}')
         print('-' * 60)
 
