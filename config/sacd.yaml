@@ -1,5 +1,5 @@
 # 最大的迭代次数
-max_episodes: 50
+max_episodes: 600
 # 此参数代码也被注释改掉
 num_steps: 100000
 # 同时训练多少个训练数据
