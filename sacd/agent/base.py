@@ -123,7 +123,10 @@ class BaseAgent(ABC):
         episode_steps = 0
 
         done = False
-        state = self.env.reset(1)
+        state = self.env.reset()
+
+        # 初始化计数器
+        action_counts = np.zeros(5)
 
         while (not done) and episode_steps <= self.max_episode_steps:
 
@@ -131,6 +134,9 @@ class BaseAgent(ABC):
                 action = self.env.sample()
             else:
                 action = self.explore(state)
+
+            # 更新对应动作的计数器
+            action_counts[action] += 1
 
             next_state, reward, done = self.env.step(action)
 
@@ -154,6 +160,14 @@ class BaseAgent(ABC):
         if self.episodes % self.eval_interval == 0:
             self.evaluate()
             self.save_models(os.path.join(self.model_dir, 'train'))
+
+        # 计算概率
+        total_counts = np.sum(action_counts)
+        action_probabilities = action_counts / total_counts
+
+        # 打印概率
+        for i in range(len(action_probabilities)):
+            print(f"Action {i + 1} probability: {action_probabilities[i]:<5.3f}")
 
         # We log running mean of training rewards.
         self.train_return.append(episode_return)
@@ -224,7 +238,7 @@ class BaseAgent(ABC):
         total_return = 0.0
 
         while True:
-            state = self.test_env.reset(1)
+            state = self.test_env.reset()
             episode_steps = 0
             episode_return = 0.0
             done = False
