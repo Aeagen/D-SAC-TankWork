@@ -3,7 +3,7 @@ max_episodes: 50
 # 此参数代码也被注释改掉
 num_steps: 100000
 # 同时训练多少个训练数据
-batch_size: 16
+batch_size: 128
 # adam优化器的设置
 lr: 0.0003
 # memory区域的大小
@@ -28,7 +28,7 @@ dueling_net: False
 # 验证模型时，验证的轮数
 num_eval_steps: 5
 # 一轮游戏中可以走的最多的步数
-max_episode_steps: 2048
+max_episode_steps: 3000
 # 用于绘制图像，用到此参数的代码已经被注释掉了
 log_interval: 10
 # 当训练多少轮后开始验证模式来查看模式训练效果
