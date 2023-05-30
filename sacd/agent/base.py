@@ -157,7 +157,7 @@ class BaseAgent(ABC):
             if self.episodes % self.target_update_interval == 0:
                 self.update_target()
 
-        if self.episodes % self.eval_interval == 0:
+        if  self.steps % self.eval_interval == 0:
             self.evaluate()
             self.save_models(os.path.join(self.model_dir, 'train'))
 
