@@ -7,13 +7,13 @@ batch_size: 128
 # adam优化器的设置
 lr: 0.0003
 # memory区域的大小
-memory_size: 3000
+memory_size: 5000
 gamma: 0.99
 # 经验回放缓冲区中存储多个连续时间步的步数
 multi_step: 16
 target_entropy_ratio: 0.98
 # 随机走多少步后开始模型训练
-start_steps: 1000
+start_steps: 4000
 # 走多少步更新一次
 update_interval: 4
 # 训练多少轮之后重新加载目标模型的权重参数
